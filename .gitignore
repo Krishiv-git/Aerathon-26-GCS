@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+
+backend/venv/
+frontend/node_modules/
+frontend/.next/
+full_sim/flood_run/
+full_sim/.venv*
+full_sim/full_sim
+full_sim/graphify-out/
+.DS_Store
+.env
+.env.*
+!.env.example

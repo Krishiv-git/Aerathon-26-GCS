@@ -1,0 +1,276 @@
+.flood-gcs {
+  --page: #090b0d;
+  --panel: #141719;
+  --control: #242729;
+  --stroke: #383d40;
+  --text: #f2f3f3;
+  --muted: #a5abad;
+  --orange: #ff741f;
+  --orange-light: #ff9a43;
+  --green: #39c6a0;
+  --amber: #ffbd62;
+  --red: #ff625e;
+  --header-height: 112px;
+  --telemetry-height: 86px;
+  position: relative;
+  width: 100%;
+  height: 100dvh;
+  min-height: 540px;
+  overflow: hidden;
+  background: var(--page);
+  color: var(--text);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 14px;
+}
+
+.gcs-header {
+  position: absolute;
+  z-index: 60;
+  inset: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--header-height);
+  padding: 0 28px;
+  background: rgba(9, 11, 13, .97);
+  border-bottom: 1px solid #ffffff1a;
+  box-shadow: 0 7px 26px #0005;
+  backdrop-filter: blur(14px);
+}
+
+.phoenix-brand { display: flex; align-items: center; gap: 16px; min-width: 0; }
+.phoenix-mark { display: block; width: 78px; height: 68px; object-fit: contain; }
+.phoenix-wordmark { display: flex; flex-direction: column; gap: 7px; min-width: 0; }
+.phoenix-wordmark strong { color: #f4f4f3; font-size: 18px; font-weight: 850; letter-spacing: .12em; line-height: 1; white-space: nowrap; }
+.phoenix-wordmark strong span { color: var(--orange); }
+.phoenix-wordmark small { color: #a4aaac; font-size: 10px; font-weight: 700; letter-spacing: .14em; white-space: nowrap; }
+.dhruva-logo { display: block; width: auto; height: 96px; max-width: min(380px, 34vw); object-fit: contain; object-position: right center; }
+
+/* 50/50 Split Main Body */
+.gcs-body {
+  position: absolute;
+  top: var(--header-height);
+  right: 0;
+  bottom: var(--telemetry-height);
+  left: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  padding: 18px 20px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.gcs-left-pane {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 0;
+  min-height: 0;
+}
+
+.gcs-right-pane {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+}
+
+.mission-action-bar {
+  flex: 0 0 auto;
+  width: 100%;
+}
+
+.start-button,
+.abort-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 48px;
+  padding: 0 16px;
+  border-radius: 8px;
+  font: 850 12px Inter, ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: .12em;
+  cursor: pointer;
+  transition: .15s ease;
+}
+
+.start-button {
+  color: #17100b;
+  background: var(--orange);
+  border: 1px solid #ff9a43;
+  box-shadow: 0 5px 18px #ff741f2d;
+}
+.start-button:hover:not(:disabled) {
+  background: #ff8c35;
+  transform: translateY(-1px);
+}
+.start-button:disabled {
+  color: #969b9d;
+  background: #383a3c;
+  border-color: #4b4e50;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+.abort-button {
+  color: #ffe2de;
+  background: #471816;
+  border: 1px solid var(--red);
+  box-shadow: 0 5px 18px #ff625e26;
+}
+.abort-button:hover:not(:disabled) {
+  color: #ffffff;
+  background: #5e1d1a;
+  border-color: #ff8b84;
+}
+
+.spinner {
+  width: 15px;
+  height: 15px;
+  margin-right: 9px;
+  border: 2px solid #6b2c0d;
+  border-top-color: #ffddb5;
+  border-radius: 50%;
+  animation: spin .75s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Single Camera Card Filling Left Pane */
+.camera-card {
+  display: grid;
+  grid-template-rows: 42px 1fr;
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  background: rgba(17, 20, 22, .97);
+  border: 1px solid #ffffff32;
+  border-radius: 10px;
+  box-shadow: 0 16px 40px #0009;
+  backdrop-filter: blur(9px);
+}
+.camera-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; min-width: 0; padding: 0 16px; background: #141719; border-bottom: 1px solid #ffffff1c; }
+.camera-title { display: flex; align-items: center; gap: 9px; min-width: 0; color: #edf0f0; font-size: 10px; font-weight: 850; letter-spacing: .1em; white-space: nowrap; }
+.camera-indicator { width: 8px; height: 8px; flex: 0 0 auto; border: 1.5px solid var(--orange-light); border-radius: 50%; }
+.camera-head-actions { display: flex; align-items: center; gap: 10px; }
+.feed-state { display: flex; align-items: center; gap: 7px; color: #aeb4b6; font-size: 8px; font-weight: 850; letter-spacing: .1em; white-space: nowrap; }
+.feed-state i { width: 6px; height: 6px; border-radius: 50%; background: #858d90; }
+.feed-live { color: #8ce4cb; }
+.feed-live i { background: var(--green); box-shadow: 0 0 7px #39c6a0a0; }
+.feed-last { color: var(--amber); }
+.feed-last i { background: var(--amber); }
+.camera-expand { display: grid; place-items: center; width: 32px; height: 32px; padding: 0; color: #d0d5d7; background: transparent; border: 0; border-radius: 5px; cursor: pointer; }
+.camera-expand:hover { color: var(--orange-light); background: #ff741f19; }
+.camera-image { position: relative; width: 100%; height: 100%; min-height: 0; overflow: hidden; background: #080a0b; }
+.camera-image img { display: block; width: 100%; height: 100%; object-fit: contain; image-rendering: auto; }
+.camera-empty { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 11px; width: 100%; height: 100%; padding: 16px; color: #9fa6a8; background: #0b0e10; font-size: 10px; font-weight: 700; letter-spacing: .07em; text-align: center; box-sizing: border-box; }
+.empty-feed-mark { width: 9px; height: 9px; border: 1px solid #737b7e; border-radius: 50%; }
+.camera-hud { position: absolute; top: 11px; left: 12px; right: 12px; display: flex; justify-content: space-between; color: #f4f5f5; font: 750 9px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .09em; text-shadow: 0 1px 4px #000; pointer-events: none; }
+.camera-hud span:first-child { color: #ffbc91; }
+.camera-expanded-backdrop { position: fixed; z-index: 70; inset: 0; width: 100%; height: 100%; padding: 0; background: #000b; border: 0; cursor: zoom-out; }
+.camera-card.camera-expanded { position: fixed; z-index: 75; top: 50%; left: 50%; width: min(1080px, calc(100vw - 48px)); height: auto; transform: translate(-50%, -50%); box-shadow: 0 25px 90px #000c; }
+.camera-expanded .camera-head { min-height: 50px; padding: 0 16px; }
+.camera-expanded .camera-title { font-size: 12px; }
+.camera-expanded .camera-image { aspect-ratio: 16 / 9; height: auto; }
+
+/* Right Pane Blank 2D Map */
+.map-2d-panel {
+  display: grid;
+  grid-template-rows: 42px 1fr;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: rgba(17, 20, 22, .97);
+  border: 1px solid #ffffff32;
+  border-radius: 10px;
+  box-shadow: 0 16px 40px #0009;
+  backdrop-filter: blur(9px);
+}
+.map-2d-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  background: #141719;
+  border-bottom: 1px solid #ffffff1c;
+}
+.map-2d-canvas {
+  width: 100%;
+  height: 100%;
+  background: #0b0e10;
+}
+
+/* Bottom Telemetry Strip (9 columns with SURVIVORS centered at column 5) */
+.telemetry-strip {
+  position: absolute;
+  z-index: 55;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) 1.15fr repeat(4, minmax(0, 1fr));
+  height: var(--telemetry-height);
+  padding: 0 10px;
+  background: rgba(11, 13, 15, .98);
+  border-top: 1px solid #ffffff26;
+  box-shadow: 0 -8px 24px #0005;
+  backdrop-filter: blur(13px);
+}
+.telemetry-cell { position: relative; display: flex; align-items: center; min-width: 0; padding: 0 12px; border-right: 1px solid #ffffff1a; }
+.telemetry-cell:last-child { border-right: 0; }
+.telemetry-cell > span { display: flex; flex-direction: column; gap: 7px; min-width: 0; }
+.telemetry-cell small { color: #a6adaf; font-size: 8px; font-weight: 800; letter-spacing: .1em; white-space: nowrap; }
+.telemetry-cell strong { display: block; overflow: hidden; color: #eaeced; font-size: 11px; font-weight: 750; text-overflow: ellipsis; white-space: nowrap; }
+.telemetry-cell strong.mono { font: 700 12px ui-monospace, SFMono-Regular, Menlo, monospace; }
+.telemetry-cell .muted-value { color: #aeb4b6; }
+.phase-cell strong { color: #f1ae7f; font-size: 10px; }
+.people-cell { justify-content: center; text-align: center; background: #ff625e0a; }
+.people-cell > span { align-items: center; }
+.people-cell strong { color: #ffd9d6; }
+.link-cell { gap: 9px; }
+.link-cell .link-indicator { width: 8px; height: 8px; flex: 0 0 auto; border-radius: 50%; background: #8a9294; }
+.link-cell .link-indicator.link-active { background: var(--green); box-shadow: 0 0 8px #39c6a0a0; }
+.link-cell strong { color: #d2d6d8; font-size: 10px; }
+
+.error-banner { position: absolute; z-index: 80; bottom: calc(var(--telemetry-height) + 16px); left: 20px; display: flex; align-items: center; gap: 10px; width: min(382px, calc(100vw - 40px)); padding: 13px; color: #ffe2de; background: #381b19f5; border: 1px solid #b34c43; border-radius: 6px; box-shadow: 0 8px 26px #0008; font-size: 11px; line-height: 1.4; }
+.error-mark { width: 8px; height: 8px; flex: 0 0 auto; border-radius: 50%; background: var(--red); }
+.error-banner span { min-width: 0; }
+.error-banner button { margin-left: auto; padding: 5px; color: #ffc1b8; background: transparent; border: 0; font-size: 9px; font-weight: 850; letter-spacing: .08em; cursor: pointer; }
+
+@media (max-width: 1200px) {
+  .gcs-header { padding: 0 20px; }
+  .phoenix-mark { width: 68px; }
+  .dhruva-logo { height: 86px; max-width: 33vw; }
+  .telemetry-strip { grid-template-columns: repeat(9, minmax(112px, 1fr)); overflow-x: auto; scrollbar-width: thin; scrollbar-color: #ff741f66 #141719; }
+}
+
+@media (max-height: 720px) and (min-width: 761px) {
+  .flood-gcs { --header-height: 86px; --telemetry-height: 72px; }
+  .phoenix-mark { height: 58px; }
+  .dhruva-logo { height: 74px; }
+  .camera-card { grid-template-rows: 36px 1fr; }
+}
+
+@media (max-width: 760px) {
+  .flood-gcs { --header-height: 78px; --telemetry-height: 144px; min-height: 520px; }
+  .gcs-header { padding: 0 12px; }
+  .phoenix-brand { gap: 8px; }
+  .phoenix-mark { width: 45px; height: 48px; }
+  .phoenix-wordmark { gap: 5px; }
+  .phoenix-wordmark strong { font-size: 12px; }
+  .phoenix-wordmark small { font-size: 7px; letter-spacing: .08em; }
+  .dhruva-logo { height: 62px; max-width: 36vw; }
+  .gcs-body { grid-template-columns: 1fr; gap: 12px; padding: 10px; overflow-y: auto; }
+  .camera-card { min-height: 240px; }
+  .map-2d-panel { min-height: 260px; }
+  .telemetry-strip { grid-template-columns: repeat(3, minmax(0, 1fr)); height: var(--telemetry-height); padding: 3px 6px; overflow: hidden; box-sizing: border-box; }
+  .telemetry-cell { padding: 4px 8px; border-bottom: 1px solid #ffffff14; }
+  .telemetry-cell:nth-child(3n) { border-right: 0; }
+  .telemetry-cell:nth-last-child(-n+3) { border-bottom: 0; }
+  .telemetry-cell small { font-size: 7px; }
+  .telemetry-cell strong { font-size: 9px; }
+  .telemetry-cell strong.mono { font-size: 9px; }
+  .error-banner { bottom: calc(var(--telemetry-height) + 10px); left: 10px; width: min(360px, calc(100vw - 20px)); }
+}

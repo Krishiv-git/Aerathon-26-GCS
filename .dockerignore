@@ -1,0 +1,12 @@
+.git
+.next
+**/node_modules
+**/venv
+**/.venv*
+**/__pycache__
+**/*.py[cod]
+full_sim/flood_run
+full_sim/graphify-out
+.env
+.env.*
+!.env.example

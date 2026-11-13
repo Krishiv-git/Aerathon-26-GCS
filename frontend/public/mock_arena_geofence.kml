@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>AeroTHON 2026 Arena Geofence</name>
+    <description>Inclusion and exclusion geofence boundaries for AeroTHON 2026</description>
+
+    <!-- Outer flight arena boundary (40m length x 30m width) -->
+    <Placemark>
+      <name>Arena Boundary (Inclusion)</name>
+      <description>Outer flight arena boundary geofence (40m x 30m)</description>
+      <Polygon>
+        <extrude>1</extrude>
+        <altitudeMode>relativeToGround</altitudeMode>
+        <outerBoundaryIs>
+          <LinearRing>
+            <coordinates>
+              77.5944408,12.9717165,0.0
+              77.5944408,12.9720762,0.0
+              77.5947176,12.9720762,0.0
+              77.5947176,12.9717165,0.0
+              77.5944408,12.9717165,0.0
+            </coordinates>
+          </LinearRing>
+        </outerBoundaryIs>
+      </Polygon>
+    </Placemark>
+
+    <!-- Red Zone No-Fly Exclusion Zone (10ft x 10ft = 3.048m x 3.048m centered at local (24.0, -10.5)) -->
+    <Placemark>
+      <name>Red Zone Exclusion</name>
+      <description>Red Zone No-Fly / Exclusion zone (10ft x 10ft)</description>
+      <Polygon>
+        <extrude>1</extrude>
+        <altitudeMode>relativeToGround</altitudeMode>
+        <outerBoundaryIs>
+          <LinearRing>
+            <coordinates>
+              77.5944682,12.9719186,0.0
+              77.5944682,12.9719461,0.0
+              77.5944964,12.9719461,0.0
+              77.5944964,12.9719186,0.0
+              77.5944682,12.9719186,0.0
+            </coordinates>
+          </LinearRing>
+        </outerBoundaryIs>
+      </Polygon>
+    </Placemark>
+  </Document>
+</kml>
+
